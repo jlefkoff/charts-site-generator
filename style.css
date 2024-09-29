@@ -35,6 +35,10 @@
 }
 
 .airport-delta {
+    @apply text-white-300;
+}
+
+.airport-echo {
     @apply text-gray-300;
 }
 

@@ -29,7 +29,8 @@ type ChartsResponse = Dictionary<string, list<ChartDto>>
 let getAllAirports (config: Config) =
     [ Seq.map (fun a -> { Id = a; Class = Bravo }) config.Airports.Bravo
       Seq.map (fun a -> { Id = a; Class = Charlie }) config.Airports.Charlie
-      Seq.map (fun a -> { Id = a; Class = Delta }) config.Airports.Delta ]
+      Seq.map (fun a -> { Id = a; Class = Delta }) config.Airports.Delta
+      Seq.map (fun a -> { Id = a; Class = Echo}) config.Airports.Echo]
     |> Seq.collect id
 
 let makeUrl airports =

@@ -13,6 +13,7 @@ let tabButton airport airportClass =
         | Bravo -> "airport-bravo"
         | Charlie -> "airport-charlie"
         | Delta -> "airport-delta"
+        | Echo -> "airport-echo"
 
     let cls = classes [ baseCssCls; airportCssCls ]
     let onclick = $"openpage('{airport}', this)"
