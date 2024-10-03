@@ -26,7 +26,7 @@ let echoToggleButton () =
 
 let echoAirportRow (airports: Airport seq) =
     let echoAirports = airports |> Seq.filter (fun a -> a.Class = Echo) |> Seq.map (fun a -> tabButton a.Id a.Class) |> Seq.toList
-    div [ _id "echoRow"; _class "hidden flex flex-row flex-wrap justify-start items-start" ] echoAirports
+    div [ _id "echoRow"; _class "hidden bg-gray-900 p-1 flex flex-row flex-wrap justify-start items-start" ] echoAirports
 
 let navBar (airports: Airport seq) =
     let mainButtons = 
