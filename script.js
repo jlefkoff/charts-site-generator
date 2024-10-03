@@ -16,6 +16,14 @@
     // Show the specific tab content
     document.getElementById(pageName).classList.remove("hidden")
 }
+function toggleEchoRow() {
+    var echoRow = document.getElementById("echoRow");
+    if (echoRow.classList.contains("hidden")) {
+        echoRow.classList.remove("hidden");
+    } else {
+        echoRow.classList.add("hidden");
+    }
+}
 
 function openpdf(pdfUrl, elmnt) {
     var viewer = document.getElementById("pdfViewer");

@@ -15,7 +15,7 @@ If you are on Windows, use `build-local.ps1` which will build and place the outp
 
 # How can I deploy my own on Cloudflare Pages?
 1. Fork the repo to your own account/organization
-2. Edit the airports in `site_config.yaml`, split into `Bravo`, `Charlie` and `Delta` categories
+2. Edit the airports in `site_config.yaml`, split into `Bravo`, `Charlie`, `Delta` and `Echo` categories
 3. Set up a Cloudflare Pages app that is connected to your forked repo. Use `chmod +x ./build-cloudflare.sh; ./build-cloudflare.sh` as the build command and `/output/wwwroot` as the output directory
 4. If you'd like, follow https://www.codemzy.com/blog/scheduling-builds-cloudflare to set up a daily cron so that your site we re-build with the latest charts daily, except replace the Cloudflare Worker code with the following for Cloudflare's newer ES format (and don't forget to insert your own Cloudflare Pages deploy hook)
 ```js

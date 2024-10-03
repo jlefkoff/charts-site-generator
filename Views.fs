@@ -20,10 +20,22 @@ let tabButton airport airportClass =
 
     button [ _class cls; _onclick onclick ] [ str airport ]
 
-let navBar (airports: Airport seq) =
-    let buttons = airports |> Seq.map (fun a -> tabButton a.Id a.Class) |> Seq.toList
+let echoToggleButton () =
+    let onclick = "toggleEchoRow()"
+    button [ _class "tablink"; _onclick onclick ] [ str "E" ]
 
-    nav [ _class "nav flex items-center" ] buttons
+let echoAirportRow (airports: Airport seq) =
+    let echoAirports = airports |> Seq.filter (fun a -> a.Class = Echo) |> Seq.map (fun a -> tabButton a.Id a.Class) |> Seq.toList
+    div [ _id "echoRow"; _class "hidden flex flex-row flex-wrap justify-start items-start" ] echoAirports
+
+let navBar (airports: Airport seq) =
+    let mainButtons = 
+        airports
+        |> Seq.filter (fun a -> a.Class <> Echo) // Exclude Echo airports
+        |> Seq.map (fun a -> tabButton a.Id a.Class)
+        |> Seq.toList
+    let echoButton = echoToggleButton ()
+    nav [ _class "nav flex items-center" ] (mainButtons @ [echoButton])
 
 let chartButton (chart: Chart) =
     let baseCssCls = "chartbutton"
@@ -68,12 +80,12 @@ let renderPage (pageTitle: string) (viewModel: (Airport * Chart list) seq) =
     let htmlStyle = classes []
 
     let navContentSection = viewModel |> Seq.map fst |> navBar
+    let echoAirportSection = viewModel |> Seq.map fst |> echoAirportRow // Add echo airport row
 
     let tabContentSection =
         viewModel
         |> Seq.map (fun (airport, charts) -> tabContent airport.Id charts)
         |> Seq.toList
-
     html
         [ _class "html h-full" ]
         [ head
@@ -85,6 +97,7 @@ let renderPage (pageTitle: string) (viewModel: (Airport * Chart list) seq) =
           body
               [ _class "body h-full" ]
               [ div [] [ navContentSection ]
+                div [] [ echoAirportSection ] // Include echo row section
                 div
                     [ _class "flex flex-row h-full" ]
                     [ div [ _class "w-1/3" ] tabContentSection

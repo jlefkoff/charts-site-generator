@@ -4,6 +4,7 @@ type AirportClass =
     | Bravo
     | Charlie
     | Delta
+    | Echo
 
 type ChartType =
     | APD
@@ -40,6 +41,7 @@ let parseAirportClass (s: string) =
     | "BRAVO" -> Some Bravo
     | "CHARLIE" -> Some Charlie
     | "DELTA" -> Some Delta
+    | "ECHO" -> Some Echo
     | _ -> None
 
 let chartToInt x =
