@@ -7,18 +7,19 @@ Airports:
     - BIL
   Delta:
     - BZN
-    - SUN
     - GPI
     - GTF
     - HLN
     - HIF
     - IDA
     - JAC
-    - TWF
     - MSO
+    - MUO
     - OGD
     - PIH
     - PVU
+    - SUN
+    - TWF
   Echo:
     - 00F
     - 00U
@@ -88,6 +89,7 @@ Airports:
     - D50
     - DIJ
     - DLN
+    - DPG
     - DTA
     - DUB
     - EKO
