@@ -38,4 +38,7 @@ function openpdf(pdfUrl, elmnt) {
 
     // Set parent div background to white
     viewer.parentElement.classList.add("bg-white")
+
+    // Scroll to top so the chart viewer is visible
+    window.scrollTo({ top: 0, behavior: "smooth" })
 }
