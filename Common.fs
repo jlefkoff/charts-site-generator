@@ -30,7 +30,7 @@ let parseChartType (s: string) =
     | "MIN" -> Some MIN
     | "LAH" -> Some LAH
     | "HOT" -> Some HOT
-    | "STAR" -> Some STAR
+    | "STR" -> Some STAR
     | "IAP" -> Some IAP
     | "DP" -> Some DP
     | "DAU" -> Some DAU
